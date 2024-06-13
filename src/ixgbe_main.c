@@ -2386,7 +2386,7 @@ static int ixgbe_clean_rx_irq(struct ixgbe_q_vector *q_vector,
 	}
 
 	if (xdp_xmit & IXGBE_XDP_REDIR)
-		xdp_do_flush();
+		xdp_do_flush;
 
 	if (xdp_xmit & IXGBE_XDP_TX) {
 		struct ixgbe_ring *ring = ixgbe_determine_xdp_ring(adapter);
@@ -12704,7 +12704,7 @@ static int ixgbe_probe(struct pci_dev *pdev,
 	if (mac_type == ixgbe_mac_82598EB)
 		pci_disable_link_state(pdev, PCIE_LINK_STATE_L0S);
 
-	pci_enable_pcie_error_reporting(pdev);
+	// pci_enable_pcie_error_reporting(pdev);
 
 	pci_set_master(pdev);
 
@@ -13416,7 +13416,7 @@ static void ixgbe_remove(struct pci_dev *pdev)
 	disable_dev = !test_and_set_bit(__IXGBE_DISABLED, &adapter->state);
 	free_netdev(netdev);
 
-	pci_disable_pcie_error_reporting(pdev);
+	// pci_disable_pcie_error_reporting(pdev);
 
 	if (disable_dev)
 		pci_disable_device(pdev);
